@@ -168,6 +168,85 @@ header h1{
     font-size:1rem;
     font-weight:900;
 }
+
+/* =======================================================
+   EXTRA STYLING ENHANCEMENTS (SAFE & OPTIONAL)
+   ======================================================= */
+
+/* --- Hover lift effect for item cards --- */
+.item-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+/* --- Add subtle glow to "Add" button on hover --- */
+.add-btn {
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-btn:hover {
+    background: #ff1c3a; /* slightly brighter red */
+    box-shadow: 0 4px 16px rgba(228,0,43,0.5);
+}
+
+/* --- Smooth focus for inputs --- */
+.panel-inputs input:focus,
+.panel-inputs select:focus,
+#menuSearch:focus {
+    outline: none;
+    border-color: var(--kfc-red);
+    box-shadow: 0 0 6px rgba(228,0,43,0.3);
+}
+
+/* --- Small animation for cart panel appearing --- */
+#cart-panel {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+#cart-panel.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* --- Button active feedback --- */
+.add-btn:active,
+#ui-order-btn:active {
+    transform: scale(0.95);
+}
+
+/* --- Smooth scroll for menu search --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Subtle shadow for category titles --- */
+.category-title {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+/* --- Prevent image dragging (UX polish) --- */
+.item-card img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* --- Tiny fade-in for items on load --- */
+.item-card {
+    opacity: 0;
+    animation: fadeInItem 0.6s forwards;
+    animation-delay: 0.1s;
+}
+
+@keyframes fadeInItem {
+    to { opacity: 1; }
+}
+
 </style>
 </head>
 
@@ -194,7 +273,7 @@ while($row = $food->fetch_assoc()):
 <div class="item-card <?php echo ($row['is_available']==0)?'sold-out':''; ?>" data-name="<?php echo strtolower($row['name']); ?>">
 
 <!-- FOOD IMAGE GOES HERE (fried chicken / burger / combo) -->
-<img src="grillide_tilapia" alt="Food image">
+<img src="girilled_tilapi" alt="Food image">
 
 <div class="item-info">
 <h3><?php echo $row['name']; ?></h3>
